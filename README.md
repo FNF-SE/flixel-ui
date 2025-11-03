@@ -2,12 +2,18 @@
 
 [flixel](https://github.com/HaxeFlixel/flixel) | [addons](https://github.com/HaxeFlixel/flixel-addons) | [ui](https://github.com/HaxeFlixel/flixel-ui) | [demos](https://github.com/HaxeFlixel/flixel-demos) | [tools](https://github.com/HaxeFlixel/flixel-tools) | [templates](https://github.com/HaxeFlixel/flixel-templates) | [docs](https://github.com/HaxeFlixel/flixel-docs) | [haxeflixel.com](https://github.com/HaxeFlixel/haxeflixel.com)
 
-[![CI](https://img.shields.io/github/workflow/status/HaxeFlixel/flixel-ui/CI.svg?logo=github)](https://github.com/HaxeFlixel/flixel-ui/actions?query=workflow%3ACI)
+[![CI](https://img.shields.io/github/actions/workflow/status/HaxeFlixel/flixel-ui/main.yml?branch=dev&logo=github)](https://github.com/HaxeFlixel/flixel-ui/actions?query=workflow%3ACI)
+[![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discordapp.com/invite/rqEBAgF)
 [![Haxelib Version](https://badgen.net/haxelib/v/flixel-ui)](https://lib.haxe.org/p/flixel-ui)
 [![Haxelib Downloads](https://badgen.net/haxelib/d/flixel-ui?color=blue)](https://lib.haxe.org/p/flixel-ui)
 [![Haxelib License](https://badgen.net/haxelib/license/flixel-ui)](LICENSE.md)
+[![Patreon](https://img.shields.io/badge/donate-patreon-blue.svg)](https://www.patreon.com/haxeflixel)
 
 ----
+
+# About
+
+A series of tools for creating UI elements and managing UI events in [HaxeFlixel](https://github.com/HaxeFlixel/flixel).
 
 # Getting Started
 
@@ -390,7 +396,9 @@ The change tag lets you modify various properties of a widget after it has alrea
 |**Line**|FlxUISprite|```<line>```|
 |**Numeric Stepper**|FlxUINumericStepper|```<numeric_stepper>```|
 |**Dropdown/Pulldown Menu**|FlxUIDropDownMenu|```<dropdown_menu>```|
+|**Bar**|FlxUIBar|```<bar>```|
 |**Tile Grid**|FlxUITileTest|```<tile_test>```|
+|**Custom Widget|Any (implements IFlxUIWidget)|```<whatever_you_want>```|
 
 Lets go over these one by one. Many of them share common attributes so I will only explain specific attributes in full detail the first time they appear.
 
@@ -598,8 +606,8 @@ A Check Box is a FlxUIGroup which contains three objects: a "box" image, a "chec
 
 Attributes:
 * ```x```/```y```, ```use_def```, ```group```
-* ```check_src``` - source image for box (not 9-sliceable, not scaleable)
-* ```box_src``` - source image for check mark (not 9-sliceable, not scaleable)
+* ```check_src``` - source image for check mark (not 9-sliceable, not scaleable)
+* ```box_src``` - source image for box (not 9-sliceable, not scaleable)
 * ```text_x``` / ```text_y``` - label offsets
 * ```label``` - text to show
 * ```context``` - FireTongue context (see Button)
@@ -616,8 +624,8 @@ Child tags:
 *If you supply ```<check>``` or ```<box>``` child tags instead of their attribute equivalents, FlxUI will treat them as full-fledged ```<sprite>``` or ```<chrome>``` tags to load for the checkmark and box assets. You'll want to use this method if you want to do something complicated, like load a scaled sprite, or a 9-slice-scaled sprite, that you can't normally accomplish with the src attributes, which just load a static image as-is.
 
 Event:
-* name - "click_checkbox"
-* params - as defined by user, but with this one automatically added to the list at the end: "checked:true" or "checked:false"
+* name - "click_check_box"
+* params - as defined by user, but with this one automatically added to the list at the end: ```{name:"checked", value:false}``` or ```{name:"checked", value:true}```
 
 ## 7. Text (FlxUIText) ```<text>```
 
@@ -772,6 +780,28 @@ Possible `fill_direction` values:
 
 TODO
 
+## 16. Custom Widget (Any Class which implements IFlxUIWidget) ```<whatever_you_want>```
+
+You can also add a handler to render a custom widget when you add certain tags to your UI. You can specify whichever tags you want, as long as you have a class which implements IFlxUIWidget that you can use to render it.
+	
+Any widget in the layout whose name does not match those provided by default will be referred to the FlxUI class; simply override `getRequest(name:String, sender:Dynamic, data:Dynamic):Dynamic`, look for a request of the name `ui_get:whatever_you_want`, and return your custom widget.
+	
+Here is an example. You can see that any instance of `<save_slot>` in the XML will be populated with a SaveSlot widget.
+	
+```
+public override function getRequest(id:String, target:Dynamic, data:Dynamic, ?params:Array<Dynamic>):Dynamic
+{
+    if (id.indexOf("ui_get:") == 0)
+    {
+        switch (id.remove("ui_get:"))
+        {
+            case "save_slot":
+                return new SaveSlot(data, _ui);
+        }
+    }
+    return null;
+}
+```	
 
 ----
 

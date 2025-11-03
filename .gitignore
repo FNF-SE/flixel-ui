@@ -1,0 +1,5 @@
+bin/
+psds/
+*.psd
+export/*
+flixel-ui.zip
