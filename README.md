@@ -1,31 +1,24 @@
-![](https://raw.github.com/HaxeFlixel/haxeflixel.com/master/src/files/images/flixel-logos/flixel-ui.png)
+![](https://raw.githubusercontent.com/HaxeFlixel/haxeflixel.com/refs/heads/dev/content/_static/images/flixel-logos/flixel-ui.png)
 
-[flixel](https://github.com/HaxeFlixel/flixel) | [addons](https://github.com/HaxeFlixel/flixel-addons) | [ui](https://github.com/HaxeFlixel/flixel-ui) | [demos](https://github.com/HaxeFlixel/flixel-demos) | [tools](https://github.com/HaxeFlixel/flixel-tools) | [templates](https://github.com/HaxeFlixel/flixel-templates) | [docs](https://github.com/HaxeFlixel/flixel-docs) | [haxeflixel.com](https://github.com/HaxeFlixel/haxeflixel.com)
+[flixel](https://github.com/FNF-SE/flixel) | [addons](https://github.com/FNF-SE/flixel-addons) | [ui](https://github.com/FNF-SE/flixel-ui) | [demos](https://github.com/HaxeFlixel/flixel-demos) | [tools](https://github.com/HaxeFlixel/flixel-tools) | [templates](https://github.com/HaxeFlixel/flixel-templates) | [docs](https://github.com/HaxeFlixel/flixel-docs) | [haxeflixel.com](https://github.com/HaxeFlixel/haxeflixel.com)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/HaxeFlixel/flixel-ui/main.yml?branch=dev&logo=github)](https://github.com/HaxeFlixel/flixel-ui/actions?query=workflow%3ACI)
-[![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discordapp.com/invite/rqEBAgF)
-[![Haxelib Version](https://badgen.net/haxelib/v/flixel-ui)](https://lib.haxe.org/p/flixel-ui)
-[![Haxelib Downloads](https://badgen.net/haxelib/d/flixel-ui?color=blue)](https://lib.haxe.org/p/flixel-ui)
+[![Flixel Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discordapp.com/invite/rqEBAgF)
 [![Haxelib License](https://badgen.net/haxelib/license/flixel-ui)](LICENSE.md)
-[![Patreon](https://img.shields.io/badge/donate-patreon-blue.svg)](https://www.patreon.com/haxeflixel)
+[![Flixel Patreon](https://img.shields.io/badge/donate-patreon-blue.svg)](https://www.patreon.com/haxeflixel)
 
 ----
 
 # About
 
-A series of tools for creating UI elements and managing UI events in [HaxeFlixel](https://github.com/HaxeFlixel/flixel).
+A series of tools for creating UI elements and managing UI events in [HaxeFlixel](https://github.com/FNF-SE/flixel).
 
 # Getting Started
 
 ## Install flixel-ui:
 
-get latest stable release from haxelib:
+get from github:
 
-    haxelib install flixel-ui
-
-get latest bleeding-edge dev version from github:
-
-    haxelib git flixel-ui https://github.com/HaxeFlixel/flixel-ui
+    haxelib git flixel-ui https://github.com/FNF-SE/flixel-ui
     
 ## Demo Project!
  A [test project](https://haxeflixel.com/demos/RPGInterface/) is available in [flixel-demos](http://github.com/HaxeFlixel/flixel-demos). You should really, really, check it out. It has a lot of inline documentation in the xml files and showcases some complex and subtle features.
@@ -64,7 +57,7 @@ You can compare this to [State_DefaultTest](https://github.com/HaxeFlixel/flixel
 
 ### Default Assets
 
-Flixel-UI has a default set of assets (see [FlxUIAssets](https://github.com/HaxeFlixel/flixel-ui/blob/master/flixel/addons/ui/FlxUIAssets.hx) and the [assets folder](https://github.com/HaxeFlixel/flixel-ui/tree/master/assets)) for basic skinning. If you provide incomplete data and/or definitions for your widgets, FlxUI will automatically attempt to fall back on the default assets. 
+Flixel-UI has a default set of assets (see [FlxUIAssets](https://github.com/FNF-SE/flixel-ui/blob/master/flixel/addons/ui/FlxUIAssets.hx) and the [assets folder](https://github.com/FNF-SE/flixel-ui/tree/master/assets)) for basic skinning. If you provide incomplete data and/or definitions for your widgets, FlxUI will automatically attempt to fall back on the default assets. 
 
 ### Custom Assets
 
